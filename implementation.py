@@ -82,7 +82,7 @@ def takeCommand():
     except Exception as e:
         print(e)
         print('SORRY!!Unable to recognize your voice')
-        return none
+        #return none
     
     return query
 
@@ -103,16 +103,14 @@ if __name__ == '__main__':
 
 # The following function will clean any command before execution of this python `file`
 
-    clear()
+    #clear()
     wishme()
     username()
 
     while True:
         query = takeCommand().lower()
-        
-'''All the commands said by user will be stored here in 'query' and will be converted to 
+        '''All the commands said by user will be stored here in 'query' and will be converted to 
 lower case for easy recognition of command'''
-
         if 'wikipedia' in query:
             speak('Searching Wikipedia...')
             query = query.replace('wikipedia','')
@@ -120,7 +118,6 @@ lower case for easy recognition of command'''
             speak('According to wikipedia ')
             print(results)
             speak(results)
-
         elif 'open youtube' in query :
             speak('Here you go to youtube...')
             webbrowser.open('youtube.com')
@@ -295,7 +292,7 @@ lower case for easy recognition of command'''
 
         elif "write a note" in query:
             speak("What should i write, madam")
-			note = takeCommand()
+            note = takeCommand()
             file = open('STARK.txt', 'w')
             speak("madam, Should i include date and time")
             snfm = takeCommand()
@@ -397,5 +394,3 @@ lower case for easy recognition of command'''
             exit()
       
         '''elif '' in query : Command go here For adding more commands'''
-
-        
