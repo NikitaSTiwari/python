@@ -16,39 +16,18 @@ def talk(text):
     engine.say(text)
     engine.runAndWait()
 
-'''def wishme():
-    hour = int(datetime.datetime.now().hour)
-    if hour >= 0 and hour < 12:
-        talk('Good Morning Madam!!')
-
-    elif hour >= 12 and hour < 18:
-        talk('Good Afternoon madam!!')
-
-    else:
-        talk('Good Evening Madam~!!')
-
-    assisname = ('STARK')
-    talk('I am Your personal assistant!')
-    talk(assisname)
-    talk('welcome')
-    talk('How can I help you Madam?')
-
-wishme()'''
-
 def takeCommand():
     try:
-        with sr.Recognizer(device_index=0) as source: #for microphone instance
+        with sr.Microphone() as source: #for microphone instance
            # r.adjust_for_ambient_noise(source,duration=1)                            #ambient noise suppression
             print('listening...')
             voice = listener.listen(source) # to listen
-            command = listener.recognize_google(voice) #speech to text
-
+            command = listener.recognize_google(voice) #speech to text        
     except:
         pass
     return command
     
 def run():
-    
     var = takeCommand()
     print(var)
     # play songs
